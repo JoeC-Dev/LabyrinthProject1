@@ -646,7 +646,6 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -660,10 +659,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: fbacfd5e-50e6-4c96-955c-eef886c73d31
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: LabrynthProjectOne
-  organizationId: threepebbles
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
