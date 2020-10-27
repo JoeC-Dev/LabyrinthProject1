@@ -19,7 +19,10 @@ public class TrapWall : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        trapWall.SetActive(true);
+        if (other.gameObject.tag == "ball")
+        {
+            trapWall.SetActive(true);
+        }
     }
     // Update is called once per frame
     void Update()
