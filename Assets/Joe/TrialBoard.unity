@@ -303,6 +303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387094873859836338, guid: a13306ecbde8a4597a59f914280c87ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 387094875284248502, guid: a13306ecbde8a4597a59f914280c87ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -362,6 +367,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093757413585468548, guid: a13306ecbde8a4597a59f914280c87ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093757413585468548, guid: a13306ecbde8a4597a59f914280c87ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093757413585468549, guid: a13306ecbde8a4597a59f914280c87ef,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093757413585468602, guid: a13306ecbde8a4597a59f914280c87ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 184374341344f4128a5e972a372faded, type: 2}
+    - target: {fileID: 2093757413585468602, guid: a13306ecbde8a4597a59f914280c87ef,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13306ecbde8a4597a59f914280c87ef, type: 3}
