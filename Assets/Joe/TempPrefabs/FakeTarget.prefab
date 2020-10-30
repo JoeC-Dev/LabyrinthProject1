@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7679826090359342457}
   - component: {fileID: 7679826090359342458}
   - component: {fileID: 7679826090359342459}
-  - component: {fileID: -5153473032368646118}
+  - component: {fileID: 8619873811885869462}
   m_Layer: 0
-  m_Name: Fake Target
+  m_Name: FakeTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5153473032368646118
+--- !u!114 &8619873811885869462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7679826090359342405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0c3903948039c47a30b48371b19096, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ec1355aa0afe4d3c9e2c3cec4b3bdea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trapWall: {fileID: 0}
