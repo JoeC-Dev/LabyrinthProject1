@@ -3,35 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class NewBehaviourScript : MonoBehaviour
+public class Control : MonoBehaviour
 {
     [Header("Set in Inspector")] 
-    //public Vector3 castlePos;
     public GameObject[] boards;
+    public GameObject ball;
+    public GameObject ballSpawn; 
 
     [Header("Set Dynamically")]
-    public int level = 1;
-    public int levelMax;
-    public int shotsTaken;
-    public GameObject board;
-    //public GameMode mode = GameMode.idle;
-    public string showing = "Show Slingshot";
+    public int level = 0;
+    public GameObject board; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            StartLevel(); 
+        {
+            Destroy(board); 
+            StartLevel();
+        }
+
+        if(Goal.correctH == true)
+        {
+            NextLevel();
+            Goal.correctH = false; 
+        }
     }
 
-    void StartLevel()
+    public void StartLevel()
     {
-        board = Instantiate<GameObject>(boards[level]); 
+        if (level < boards.Length)
+        {
+            board = Instantiate<GameObject>(boards[level]);
+            ball.transform.position = ballSpawn.transform.position;
+        }
+        //else;
+            //go to end screen.
+            
     }
 
+    public void NextLevel()
+    {
+        level++;
+        StartLevel(); 
+    }
 }
