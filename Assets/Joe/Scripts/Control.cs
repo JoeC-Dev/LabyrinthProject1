@@ -24,7 +24,8 @@ public class Control : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(board); 
+            Destroy(Spawner.ball);
+            Destroy(board);
             StartLevel();
         }
 
@@ -40,7 +41,7 @@ public class Control : MonoBehaviour
         if (level < boards.Length)
         {
             board = Instantiate<GameObject>(boards[level]);
-            ball.transform.position = ballSpawn.transform.position;
+            
         }
         //else;
             //go to end screen.
@@ -50,6 +51,8 @@ public class Control : MonoBehaviour
     public void NextLevel()
     {
         level++;
+        Destroy(Spawner.ball);
+        Destroy(board); 
         StartLevel(); 
     }
 }

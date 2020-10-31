@@ -11,7 +11,6 @@ public class Goal : MonoBehaviour
         if (other.gameObject.tag == "ball")
         {
             Goal.correctH = true;
-            Control.NextLevel(); 
         }
     }
 }
