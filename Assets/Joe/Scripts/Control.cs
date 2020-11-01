@@ -97,7 +97,18 @@ public class Control : MonoBehaviour
         Ftimer = (int)timer; 
         Fmin = min;
         Fsec = sec;
-        if (PlayerPrefs.HasKey("FinalTime.Fmin") && level == boards.Length)
+        if (PlayerPrefs.HasKey("FinalLevel"))
+        {
+            if(level > PlayerPrefs.GetInt("FinalLevel"))
+            {
+                PlayerPrefs.SetInt("FinalLevel", level);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("FinalLevel", level);
+        }
+        if (PlayerPrefs.HasKey("FinalTime.Fmin") && level >= PlayerPrefs.GetInt("FinalLevel"))
         {
             if(Fmin < PlayerPrefs.GetInt("FinalTime.Fmin"))
             {
@@ -114,7 +125,7 @@ public class Control : MonoBehaviour
         }
         else
         {
-            if (!PlayerPrefs.HasKey("FinalTime.Fmin") && level == boards.Length)
+            if (!PlayerPrefs.HasKey("FinalTime.Fmin") && level >= PlayerPrefs.GetInt("FinalLevel"))
             {
                 PlayerPrefs.SetInt("FinalTime.Fmin", Fmin);
                 PlayerPrefs.SetInt("FinalTime.Fsec", Fsec);
