@@ -20,7 +20,7 @@ public class Control : MonoBehaviour
     void Start()
     {
         StartLevel(); 
-        Level.text = "Level"+(level+1).ToString();
+        Level.text = "Level: "+(level+1).ToString();
     }
 
     //initialize variables for keeping time
@@ -87,7 +87,7 @@ public class Control : MonoBehaviour
         Destroy(Spawner.ball);
         Destroy(board); 
         StartLevel();
-        Level.text = "Level:"+(level+1).ToString();
+        Level.text = "Level: "+(level+1).ToString();
     }
 
     //initialize final time variables to be used
@@ -96,7 +96,30 @@ public class Control : MonoBehaviour
     {
         Ftimer = (int)timer; 
         Fmin = min;
-        Fsec = sec; 
+        Fsec = sec;
+        if (PlayerPrefs.HasKey("FinalTime.Fmin") && level == boards.Length)
+        {
+            if(Fmin < PlayerPrefs.GetInt("FinalTime.Fmin"))
+            {
+                PlayerPrefs.SetInt("FinalTime.Fmin", Fmin);
+                PlayerPrefs.SetInt("FinalTime.Fsec", Fsec);
+            }
+            else
+            {
+                if(Fmin == PlayerPrefs.GetInt("FinalTime.Fmin") && Fsec < PlayerPrefs.GetInt("FinalTime.Fsec"))
+                {
+                    PlayerPrefs.SetInt("FinalTime.Fsec", Fsec);
+                }
+            }
+        }
+        else
+        {
+            if (!PlayerPrefs.HasKey("FinalTime.Fmin") && level == boards.Length)
+            {
+                PlayerPrefs.SetInt("FinalTime.Fmin", Fmin);
+                PlayerPrefs.SetInt("FinalTime.Fsec", Fsec);
+            }
+        }
     }
 
     //game over script reports final times and changes scene to end scene
@@ -113,8 +136,8 @@ public class Control : MonoBehaviour
         min = (int)timer / 60;
         sec = (int)timer % 60; 
         if(sec < 10)
-            timePassed.text = "Time:"+min.ToString() +":0" +sec.ToString();
+            timePassed.text = "Time: "+min.ToString() +":0" +sec.ToString();
         else
-            timePassed.text = "Time:"+min.ToString() + ":" + sec.ToString();
+            timePassed.text = "Time: "+min.ToString() + ":" + sec.ToString();
     }
 }
