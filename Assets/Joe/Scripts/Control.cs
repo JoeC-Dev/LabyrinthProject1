@@ -7,7 +7,6 @@ public class Control : MonoBehaviour
 {
     [Header("Set in Inspector")] 
     public GameObject[] boards;
-    public GameObject ballSpawn; 
 
     [Header("Set Dynamically")]
     public int level = 0;

@@ -7,19 +7,13 @@ public class Spawner : MonoBehaviour
     [Header("Set In Inspector")]
     public GameObject temp;
 
-
+    //static game object so it can be called in the control script
     public static GameObject ball; 
-    // Start is called before the first frame update
+    //instantiates a ball at the beginning of the round at the position of the spawner
     void Start()
     {
        
         ball = Instantiate<GameObject>(temp);
         ball.transform.position = this.transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     
     }
 }
