@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Control : MonoBehaviour
 {
     [Header("Set in Inspector")] 
     public GameObject[] boards;
-    public GameObject ballSpawn; 
+    public Text timePassed;
+    public Text Level; 
 
     [Header("Set Dynamically")]
     public int level = 0;
@@ -17,7 +19,8 @@ public class Control : MonoBehaviour
     // Starts game when scene is initialized 
     void Start()
     {
-        StartLevel();
+        StartLevel(); 
+        Level.text = "Level"+(level+1).ToString();
     }
 
     //initialize variables for keeping time
@@ -27,14 +30,7 @@ public class Control : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime; //seconds of game as a gloat
-        sec = (int)(timer); //convert the timer to seconds
-
-        //turns 60 seconds into minutes 
-        if(sec == 60)
-        {
-            min++;
-            sec = 0;
-        }
+        //sec = (int)(timer); //convert the timer to seconds
 
         //resets game on escape 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -42,25 +38,26 @@ public class Control : MonoBehaviour
             //destroys the ball and the board objects to be respawned
             Destroy(Spawner.ball);
             Destroy(board);
+            timer+=20;
 
-            //adds 20 seconds to the overall time when game is reset
-            for(int i = 0; i < 20; i++)
-            {
-                sec++;
-                //makes sure time doesnt go over 60 seconds
-                if(sec == 60)
-                {
-                    min++;
-                    sec = 0; 
-                }
-            }
             //minus a life and restart the level 
             lives--; 
             StartLevel();
         }
 
+        //updates timer after all time manipulation is done
+        TimeUpdater();
+
+
+        //turns 60 seconds into minutes 
+        if (sec == 60)
+        {
+            min += 1;
+            sec = 0;
+        }
+
         //if the goal is hit this will restart the game
-        if(Goal.correctH == true)
+        if (Goal.correctH == true)
         {
             NextLevel();
             Goal.correctH = false; 
@@ -89,13 +86,15 @@ public class Control : MonoBehaviour
         level++;
         Destroy(Spawner.ball);
         Destroy(board); 
-        StartLevel(); 
+        StartLevel();
+        Level.text = "Level:"+(level+1).ToString();
     }
 
     //initialize final time variables to be used
-    public static int Fmin, Fsec; 
+    public static int Fmin, Fsec, Ftimer; 
     public void reportTime()
     {
+        Ftimer = (int)timer; 
         Fmin = min;
         Fsec = sec; 
     }
@@ -104,6 +103,18 @@ public class Control : MonoBehaviour
     public void GameOver()
     {
         reportTime();
+        print("game over");
         //initialize end scene
+    }
+
+    //updates the time gui 
+    public void TimeUpdater()
+    {
+        min = (int)timer / 60;
+        sec = (int)timer % 60; 
+        if(sec < 10)
+            timePassed.text = "Time:"+min.ToString() +":0" +sec.ToString();
+        else
+            timePassed.text = "Time:"+min.ToString() + ":" + sec.ToString();
     }
 }
