@@ -7,7 +7,7 @@ public class StartScreen : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("TrialBoard");
+        SceneManager.LoadScene(1);
     }
 
 }

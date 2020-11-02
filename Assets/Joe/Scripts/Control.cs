@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class Control : MonoBehaviour
 {
@@ -139,6 +139,7 @@ public class Control : MonoBehaviour
         reportTime();
         print("game over");
         //initialize end scene
+        SceneManager.LoadScene(2);
     }
 
     //updates the time gui 
