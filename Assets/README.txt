@@ -1,3 +1,4 @@
+Link to Game: https://play.unity.com/mg/other/labyrinthproject1
 This game stores score in terms of highest level and quickest time.
 
 To restart the game a user must click the escape key.
