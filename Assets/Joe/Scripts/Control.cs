@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class Control : MonoBehaviour
 {
@@ -143,6 +143,7 @@ public class Control : MonoBehaviour
         fLevel = level; 
         SceneManager.LoadScene("_EndScreen");
         //initialize end scene
+        SceneManager.LoadScene(2);
     }
 
     //updates the time gui 
