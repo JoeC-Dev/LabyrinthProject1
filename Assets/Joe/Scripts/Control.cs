@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -138,6 +139,7 @@ public class Control : MonoBehaviour
     {
         reportTime();
         print("game over");
+        SceneManager.LoadScene("_EndScreen");
         //initialize end scene
     }
 
