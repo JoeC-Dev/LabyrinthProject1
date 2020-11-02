@@ -134,11 +134,13 @@ public class Control : MonoBehaviour
         }
     }
 
+    public static int fLevel;
     //game over script reports final times and changes scene to end scene
     public void GameOver()
     {
         reportTime();
         print("game over");
+        fLevel = level; 
         SceneManager.LoadScene("_EndScreen");
         //initialize end scene
     }
